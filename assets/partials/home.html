@@ -1,0 +1,50 @@
+
+<div class="row" style="height:100%;padding:0px;">
+	<div class="col-xs-2 feedbar pt-30">
+		<div class="add-website f-16 bold f-white b-mygreen" ng-click="addWebsite('sdf')">
+			+&nbsp;Add Website
+		</div>
+		<div class="row subscription" ng-repeat="Subscription in Subscriptions" ng-class="{'active':Subscription.feed.pk == activeFeed}">
+			<span ng-click="setActiveFeed(Subscription.feed)">{[Subscription.feed.url]}</span>
+			<span class="unsubscribe">&nbsp;<i class="fa fa-trash f-red" ng-click="unsubscribe(Subscription)"></i></span>
+		</div>
+	</div>
+	<div class="col-xs-10 feedtiles" >
+		<div class="feedmenu">
+			<div class="col-xs-2 pull-r pt-8">
+				<span class="f-mygreen csr-pointer" ng-click="activeMenu='list'" ng-class="{'activemenu':activeMenu=='list'}">
+					<i class="fa fa-align-justify"></i>
+					&nbsp;List
+				</span>&nbsp;&nbsp;
+				<span class="f-mygreen csr-pointer" ng-click="activeMenu='grid'"  ng-class="{'activemenu':activeMenu=='grid'}">
+					<i class="fa fa-th"></i>
+					&nbsp;Grid
+				</span>
+			</div>
+		</div>
+		<div class="feedcontent">
+			<a ng-href="{[feed.feed_link]}" target="_blank" class="feed-feed col-xs-3" ng-repeat="feed in Feeds | filter:{'feed':(activeFeed || '')}">
+			<div class="feed-title">{[feed.feed_title]}</div>
+			<div class="feed-summary">{[feed.feed_summary]}</div>
+			<div class="feed-image" style="background-image:url({[feed.feed_image || '/static/images/default.jpg']});height: 200px;background-size: cover;"></div>
+			<div class="feed-share">
+				<i class="fa fa-share-alt"></i>
+			</div>
+			<div class="feed-footer">
+				<span class="lke">
+					&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-thumbs-o-up"></i>&nbsp; Like .
+				</span>
+				<span class="fb">
+				&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook"></i>&nbsp; Facebook .
+				</span>
+				<span class="gle">
+				&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-google"></i>&nbsp; Google .
+				</span>
+				<span class="twt">
+				&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-twitter"></i>&nbsp; Twitter
+				</span>
+			</div>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+<div class="row b-mygreen profile-wrap">
+	<a href="/" target="_self" class="col-xs-4 pull-l f-28">MeraFeeds</a>
+	<div class="col-xs-4 pull-r">
+		<div class="dropdown-handler mr-20" dropdown>
+			<h5 class="dropdown-handler--name">{[username]}&nbsp;<i class="fa fa-caret-down"></i></h5>
+			<ul class="dropdown-list hide">
+				<li>
+					<a href="/logout/" target="_self"><i class="fa fa-sign-out"></i>&nbsp;logout</a>
+				</li>
+			</ul>
+		</div>	
+	</div>
+</div>
+{% endif %}

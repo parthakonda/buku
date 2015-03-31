@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block mainContent %}
+<form action="" method="POST">
+{% csrf_token %}
+<input type="text" name="url" id="feed_url">
+<input type="button" value="Get Feeds" id="get_feeds">
+</form>
+
+<div class="feeds-result">
+
+</div>
+{% endblock %}
